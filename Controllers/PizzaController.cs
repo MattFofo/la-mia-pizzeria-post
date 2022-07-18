@@ -42,14 +42,33 @@ namespace la_mia_pizzeria_static.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
-            try
+            //if (!ModelState.IsValid)
+            //{
+
+            //}
+            using (PizzeriaContext context = new PizzeriaContext())
             {
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    Pizza newPizza = new Pizza()
+                    {
+                        Name = collection["Name"],
+                        Image = collection["Description"],
+                        Description = collection["Description"],
+                        Price = Decimal.Parse(collection["Price"])
+                    };
+
+                    context.Pizzas.Add(newPizza);
+                    context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return View("Create", collection);
+                }
+
             }
-            catch
-            {
-                return View();
-            }
+
         }
 
         // GET: PizzasController/Edit/5
