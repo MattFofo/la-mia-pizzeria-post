@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using la_mia_pizzeria_static.ValidatorAttributes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace la_mia_pizzeria_static.Models
@@ -13,7 +14,8 @@ namespace la_mia_pizzeria_static.Models
 
         [Column(TypeName = "text")]
         [Required(ErrorMessage = "Alla tua pizza serve una descrizione!")]
-        [StringLength(200)]
+        [StringLength(200, ErrorMessage = "Iltesto non può essere così lungo!")]
+        [NoMoreThanFiveWordsValidation]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Alla tua pizza serve un'immagine!")]
