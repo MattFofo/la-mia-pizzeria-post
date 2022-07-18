@@ -46,12 +46,20 @@ html {
     background-size: cover;
 }
 
-.card-pizza-list {
+.card-pizza-list, .card-pizza-details, .table-pizza-list {
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+    border-radius: 12px;
 }
 
 .table-pizza-list {
     background-color: ghostwhite;
-    border-radius: 12px;
+}
+
+
+/* Form */
+
+form {
+    background-color: lightblue;
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+    border-radius: 20px;
 }

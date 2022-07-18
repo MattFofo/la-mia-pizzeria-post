@@ -40,32 +40,38 @@ namespace la_mia_pizzeria_static.Controllers
         // POST: PizzasController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Pizza newPizza)
         {
-            //if (!ModelState.IsValid)
-            //{
-
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View("Create", newPizza);
+            }
             using (PizzeriaContext context = new PizzeriaContext())
             {
-                try
-                {
-                    Pizza newPizza = new Pizza()
-                    {
-                        Name = collection["Name"],
-                        Image = collection["Description"],
-                        Description = collection["Description"],
-                        Price = Decimal.Parse(collection["Price"])
-                    };
 
-                    context.Pizzas.Add(newPizza);
-                    context.SaveChanges();
-                    return RedirectToAction(nameof(Index));
-                }
-                catch
-                {
-                    return View("Create", collection);
-                }
+                context.Pizzas.Add(newPizza);
+                context.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+
+                //try
+                //{
+                //    Pizza newPizza = new Pizza()
+                //    {
+                //        Name = collection["Name"],
+                //        Image = collection["Description"],
+                //        Description = collection["Description"],
+                //        Price = Decimal.Parse(collection["Price"])
+                //    };
+
+                //    context.Pizzas.Add(newPizza);
+                //    context.SaveChanges();
+                //    return RedirectToAction(nameof(Index));
+                //}
+                //catch
+                //{
+                //    return View("Create", collection);
+                //}
 
             }
 
