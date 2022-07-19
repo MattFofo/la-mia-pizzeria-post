@@ -63,3 +63,10 @@ form {
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
     border-radius: 20px;
 }
+
+
+/* footer */
+
+.footer-social-links-container > a {
+    text-decoration: none;
+}

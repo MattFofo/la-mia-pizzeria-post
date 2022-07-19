@@ -14,7 +14,7 @@ namespace la_mia_pizzeria_static.ValidatorAttributes
 
             } else
             {
-                var parts = fieldValue
+                string[] parts = fieldValue
                 .Split(' ')
                 .Select(p => p.Trim())
                 .Where(p => !string.IsNullOrWhiteSpace(p))

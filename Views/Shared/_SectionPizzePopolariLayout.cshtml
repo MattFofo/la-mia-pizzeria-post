@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/Pizza/Details/@pizza.Id" class="btn btn-primary">Dettagli</a>
+                        <a asp-controller="Pizza" asp-action="Details" asp-route-id="@pizza.Id" class="btn btn-primary">Dettagli</a>
                     </div>
                 }
             }
